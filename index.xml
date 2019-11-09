@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Pedro Cattori</title>
+    <link>http://www.github.pcattori.io/</link>
+    <description>Recent content in Blog on Pedro Cattori</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 07 Nov 2019 20:12:00 -0500</lastBuildDate>
+    
+	<atom:link href="http://www.github.pcattori.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>http://www.github.pcattori.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.github.pcattori.io/about/</guid>
+      <description>Hi! I&amp;rsquo;m Pedro. I&amp;rsquo;m currently a Machine Learning Engineer @ Tamr.</description>
+    </item>
+    
+    <item>
+      <title>Tidy Processes in Python</title>
+      <link>http://www.github.pcattori.io/posts/tidy-processes/</link>
+      <pubDate>Thu, 07 Nov 2019 20:12:00 -0500</pubDate>
+      
+      <guid>http://www.github.pcattori.io/posts/tidy-processes/</guid>
+      <description>The subprocess module from the Python standard library makes it easy to start processes from within your Python script.
+But, it gets more complex if:
+ You need to run the subprocess concurrently with your script The subprocess creates its own child processes  In my case, I had a Flask server that needed to be running while my experiment script ran since my script made API calls to the server.</description>
+    </item>
+    
+  </channel>
+</rss>
