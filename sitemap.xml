@@ -4,7 +4,7 @@
   
   <url>
     <loc>http://www.github.pcattori.io/</loc>
-    <lastmod>2019-11-07T20:12:00-05:00</lastmod>
+    <lastmod>2019-11-14T21:07:19-05:00</lastmod>
   </url>
   
   <url>
@@ -12,17 +12,27 @@
   </url>
   
   <url>
-    <loc>http://www.github.pcattori.io/posts/</loc>
-    <lastmod>2019-11-07T20:12:00-05:00</lastmod>
+    <loc>http://www.github.pcattori.io/posts/composable-behavior/</loc>
+    <lastmod>2019-11-14T21:07:19-05:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.github.pcattori.io/tags/python/</loc>
-    <lastmod>2019-11-07T20:12:00-05:00</lastmod>
+    <loc>http://www.github.pcattori.io/posts/</loc>
+    <lastmod>2019-11-14T21:07:19-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.github.pcattori.io/tags/react/</loc>
+    <lastmod>2019-11-14T21:07:19-05:00</lastmod>
   </url>
   
   <url>
     <loc>http://www.github.pcattori.io/tags/</loc>
+    <lastmod>2019-11-14T21:07:19-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.github.pcattori.io/tags/python/</loc>
     <lastmod>2019-11-07T20:12:00-05:00</lastmod>
   </url>
   

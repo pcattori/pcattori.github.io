@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Pedro Cattori</title>
-    <link>http://www.github.pcattori.io/posts/</link>
-    <description>Recent content in Posts on Pedro Cattori</description>
+    <title>React on Pedro Cattori</title>
+    <link>http://www.github.pcattori.io/tags/react/</link>
+    <description>Recent content in React on Pedro Cattori</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 14 Nov 2019 21:07:19 -0500</lastBuildDate>
     
-	<atom:link href="http://www.github.pcattori.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.github.pcattori.io/tags/react/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -21,17 +21,6 @@ And I think understanding composable behavior may be the Holy Grail. 🏆
 Team #uncontrolled vs Team #controlled The quintessential example is the humble &amp;lt;input/&amp;gt;.
 An uncontrolled &amp;lt;input/&amp;gt; does the obvious thing out-of-the-box. Namely, as a user types, the characters they are typing appear in the text box.
 // UncontrolledInput.</description>
-    </item>
-    
-    <item>
-      <title>Tidy Processes in Python</title>
-      <link>http://www.github.pcattori.io/posts/tidy-processes/</link>
-      <pubDate>Thu, 07 Nov 2019 20:12:00 -0500</pubDate>
-      
-      <guid>http://www.github.pcattori.io/posts/tidy-processes/</guid>
-      <description>The subprocess module from the Python standard library makes it easy to start processes from within your Python script.
-But, it gets more complex if:
- You need to run the subprocess concurrently with your script The subprocess creates its own child processes  In my case, I had a Flask server that needed to be running while my experiment script ran since my script made API calls to the server.</description>
     </item>
     
   </channel>

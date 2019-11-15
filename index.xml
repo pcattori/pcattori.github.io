@@ -5,7 +5,7 @@
     <link>http://www.github.pcattori.io/</link>
     <description>Recent content in Blog on Pedro Cattori</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 07 Nov 2019 20:12:00 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 14 Nov 2019 21:07:19 -0500</lastBuildDate>
     
 	<atom:link href="http://www.github.pcattori.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,6 +17,19 @@
       
       <guid>http://www.github.pcattori.io/about/</guid>
       <description>Hi! I&amp;rsquo;m Pedro. I&amp;rsquo;m currently a Machine Learning Engineer @ Tamr.</description>
+    </item>
+    
+    <item>
+      <title>Composable Behavior with React Hooks</title>
+      <link>http://www.github.pcattori.io/posts/composable-behavior/</link>
+      <pubDate>Thu, 14 Nov 2019 21:07:19 -0500</pubDate>
+      
+      <guid>http://www.github.pcattori.io/posts/composable-behavior/</guid>
+      <description>You don&amp;rsquo;t have to spend much time developing React code to come across the old &amp;ldquo;controlled vs uncontrolled components&amp;rdquo; debate. ⚛
+And I think understanding composable behavior may be the Holy Grail. 🏆
+Team #uncontrolled vs Team #controlled The quintessential example is the humble &amp;lt;input/&amp;gt;.
+An uncontrolled &amp;lt;input/&amp;gt; does the obvious thing out-of-the-box. Namely, as a user types, the characters they are typing appear in the text box.
+// UncontrolledInput.</description>
     </item>
     
     <item>
