@@ -16,11 +16,9 @@
       <pubDate>Thu, 14 Nov 2019 21:07:19 -0500</pubDate>
       
       <guid>http://www.github.pcattori.io/posts/composable-behavior/</guid>
-      <description>You don&amp;rsquo;t have to spend much time developing React code to come across the old &amp;ldquo;controlled vs uncontrolled components&amp;rdquo; debate. ⚛
-And I think understanding composable behavior may be the Holy Grail. 🏆
-Team #uncontrolled vs Team #controlled The quintessential example is the humble &amp;lt;input/&amp;gt;.
-An uncontrolled &amp;lt;input/&amp;gt; does the obvious thing out-of-the-box. Namely, as a user types, the characters they are typing appear in the text box.
-// UncontrolledInput.</description>
+      <description>When I first learned React ⚛, it took me less than a day to run into the ol&amp;rsquo; &amp;ldquo;controlled vs uncontrolled components&amp;rdquo; dichotomy. At the time, I didn&amp;rsquo;t even know the terms &amp;ldquo;controlled&amp;rdquo; and &amp;ldquo;uncontrolled&amp;rdquo;, but was still struggling to fit the designs in my head into those two buckets.
+The tension was between 2 competing goals:
+ I want to make my components as reusable as possible My use-cases were similar, but not exactly the same&amp;hellip;  Here&amp;rsquo;s a checkbox component that takes care of styling and toggling when clicked.</description>
     </item>
     
   </channel>
