@@ -343,7 +343,9 @@ There is nothing preventing us from writing multiple hooks for multiple pre-pack
 <h2 id="off-the-hook">Off the hook</h2>
 <p>Finally, we can decouple our behavior from hooks (and any 1 particular state management e.g. Redux, React Context, etc&hellip;) by shipping behavior as pure functions too!</p>
 <p>I recommend writing a function that accepts the current state and produces the next state.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// pure function! state -&gt; state
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// Checkbox.js
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// pure function! state -&gt; state
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">toggle</span>(<span style="color:#a6e22e">state</span>) {
   <span style="color:#66d9ef">return</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">state</span>
 }
@@ -355,9 +357,9 @@ There is nothing preventing us from writing multiple hooks for multiple pre-pack
     <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">value</span>, <span style="color:#a6e22e">onChange</span> }
   }
 }
-</code></pre></div><p>For example, not we can use this behavior in Redux:</p>
+</code></pre></div><p>For example, now we can use this behavior in Redux:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// reducer.js
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">toggle</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./Input&#39;</span>
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">toggle</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./Checkbox&#39;</span>
 
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">reducer</span>(<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">action</span>) {
   <span style="color:#66d9ef">switch</span>(<span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">type</span>) {
@@ -378,7 +380,7 @@ That's too tedious&hellip;</p>
 <p>If you find yourself constantly wiring the same behavior to the same component, you've discovered something about your use-case!
 Maybe that coupling <em>should</em> be promoted to be a concept unto itself, and then yes, you can pre-couple that behavior and rendering into a stateful component for reuse.</p>
 <p>But the point is that <em>you</em> are in control of that, its not a pre-coupling that happened somewhere that you can't reach.
-As a user of a library, its much easier to create a new coupling (via composition) than it is to detangle part of the library (if you've ever had to wrangle <code>ref</code>s you know what I mean).</p>
+As a user of a library, its much easier to create a new coupling (via composition) than it is to detangle part of the library (if you've ever had to wrangle <code>ref</code>s and callbacks you know what I mean).</p>
 <h2 id="fp">FP?</h2>
 <p>This isn't a new idea.
 Composing behavior is the central tenet of <a href="https://en.wikipedia.org/wiki/Functional_programming">Functional Programming</a>, though in that context we'd say <a href="https://en.wikipedia.org/wiki/Functional_programming#First-class_and_higher-order_functions">&ldquo;Functions can be passed as arguments to other functions&rdquo;</a>.</p>
