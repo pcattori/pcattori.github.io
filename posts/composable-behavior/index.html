@@ -369,8 +369,10 @@ There is nothing preventing us from writing multiple hooks for multiple pre-pack
 </span><span style="color:#75715e"></span>  }
 }
 
-<span style="color:#66d9ef">export</span> <span style="color:#a6e22e">reducer</span>
-</code></pre></div><h2 id="coupling-under-your-control">Coupling under your control</h2>
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">reducer</span>
+</code></pre></div><p>If this example seems contrived, it is.
+<code>toggle</code> is too simple a behavior to warrant a shareable function, but imagine cases where computing the next state is not trivial.</p>
+<h2 id="coupling-under-your-control">Coupling under your control</h2>
 <p>You might argue:</p>
 <blockquote>
 <p>But if I know the default behavior for something, why not ship with an uncontrolled component that includes that behavior?
