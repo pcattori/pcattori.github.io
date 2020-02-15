@@ -2,18 +2,18 @@
 <html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='When I first learned React ⚛, it took me less than a day to run into the ol&rsquo; &ldquo;controlled vs uncontrolled components&rdquo; dichotomy. At the time, I didn&#39;t even know the terms &ldquo;controlled&rdquo; and &ldquo;uncontrolled&rdquo;, but was still struggling to fit the designs in my head into those two buckets.
+<meta name='description' content='When I first learned React ⚛, it took me less than a day to run into the ol&rsquo; &ldquo;controlled vs uncontrolled components&rdquo; dichotomy. At the time, I didn&#39;t know the terms &ldquo;controlled&rdquo; and &ldquo;uncontrolled&rdquo;, but was still struggling to fit my designs into these two buckets.
 The tension was between 2 competing goals:
  I want to make my components as reusable as possible My use-cases were similar, but not exactly the same&hellip;  Here&#39;s a checkbox component that takes care of styling and toggling when clicked.'>
 <meta name='theme-color' content='#00adb5'>
 
 <meta property='og:title' content='Composable Behavior with React Hooks • Pedro Cattori'>
-<meta property='og:description' content='When I first learned React ⚛, it took me less than a day to run into the ol&rsquo; &ldquo;controlled vs uncontrolled components&rdquo; dichotomy. At the time, I didn&#39;t even know the terms &ldquo;controlled&rdquo; and &ldquo;uncontrolled&rdquo;, but was still struggling to fit the designs in my head into those two buckets.
+<meta property='og:description' content='When I first learned React ⚛, it took me less than a day to run into the ol&rsquo; &ldquo;controlled vs uncontrolled components&rdquo; dichotomy. At the time, I didn&#39;t know the terms &ldquo;controlled&rdquo; and &ldquo;uncontrolled&rdquo;, but was still struggling to fit my designs into these two buckets.
 The tension was between 2 competing goals:
  I want to make my components as reusable as possible My use-cases were similar, but not exactly the same&hellip;  Here&#39;s a checkbox component that takes care of styling and toggling when clicked.'>
 <meta property='og:url' content='http://www.github.pcattori.io/posts/composable-behavior/'>
 <meta property='og:site_name' content='Pedro Cattori'>
-<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:tag' content='React'><meta property='article:published_time' content='2019-11-14T21:07:19-05:00'/><meta property='article:modified_time' content='2019-11-29T23:04:45-05:00'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:tag' content='React'><meta property='article:published_time' content='2019-11-14T21:07:19-05:00'/><meta property='article:modified_time' content='2020-02-15T12:45:00Z'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.60.0" />
 
@@ -102,7 +102,7 @@ The tension was between 2 competing goals:
 
   <div class='container entry-content'>
   <p>When I first learned <a href="https://reactjs.org/">React</a> ⚛, it took me less than a day to run into the ol&rsquo; <a href="https://reactjs.org/docs/uncontrolled-components.html">&ldquo;controlled vs uncontrolled components&rdquo;</a> dichotomy.
-At the time, I didn't even know the terms &ldquo;controlled&rdquo; and &ldquo;uncontrolled&rdquo;, but was still struggling to fit the designs in my head into those two buckets.</p>
+At the time, I didn't know the terms &ldquo;controlled&rdquo; and &ldquo;uncontrolled&rdquo;, but was still struggling to fit my designs into these two buckets.</p>
 <p>The tension was between 2 competing goals:</p>
 <ol>
 <li>I want to make my components as <strong>reusable</strong> as possible</li>
@@ -134,9 +134,9 @@ E.g. I was using some checkboxes as filters and I wanted my <em>Clear filters</e
 </code></pre></div><p>The tension becomes apparent as I kept adding more and more props to my components to configure them to deal with the variety of use-cases.
 It looked ugly and quickly became unmaintainable.</p>
 <p>Maybe writing <em>truly</em> reusable UI components is a fool's errand.
-I gave up on finding a better way for a while and settled into writing mostly controlled components wired to Redux.
+I gave up on finding a better way and settled into writing mostly controlled components wired to Redux.
 But every time I wrote Redux code just to enable obvious, default behavior (e.g. &ldquo;toggling a checkbox&rdquo;, &ldquo;writing characters into a text input&rdquo;), I longed again for a better way.</p>
-<p>I'd be lying if I pretended my persistence to find a better way wasn't tied up in my ego as a developer.
+<p>My persistence to find a better way was tied up with my ego as a developer.
 I took pride in writing clean, reusable code in scripts and backend code.
 But here I was wrestling with a humble checkbox&hellip;
 Surely, any great software engineer should be able to write reusable UI components, no?</p>
@@ -188,7 +188,7 @@ Hooks will keep our code focused on solving our problem rather than writing boil
   )
 }
 </code></pre></div><hr>
-<p>A <em>controlled</em> <code>&lt;input/&gt;</code> needs to be wired up, but gives you the flexibility to have the <code>&lt;input/&gt;</code> react to other events. For example, if the <code>&lt;input/&gt;</code> is being used as a search box, you could wire up your app so that clicking a <strong>Clear filters</strong> button also wipes out the text in the <code>&lt;input/&gt;</code>.</p>
+<p>A <em>controlled</em> <code>&lt;input/&gt;</code> needs to be wired up, but gets flexibility to react to other events. For example, if the <code>&lt;input/&gt;</code> is used as a search box, you could wire up your app so that clicking a <strong>Clear filters</strong> button also wipes out the text in the <code>&lt;input/&gt;</code>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// ControlledInput.jsx
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
 
@@ -257,7 +257,7 @@ Now the only challenge is shipping some default behavior that the user can easil
   <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">value</span>, <span style="color:#a6e22e">onChange</span> }
 }
 </code></pre></div><p>The design here is to create a hook that returns a JS object in the same shape as our component props and delivers the default behavior for our component.
-Note that React hooks must have <a href="https://reactjs.org/docs/hooks-custom.html#extracting-a-custom-hook">names starting with &ldquo;use&rdquo;</a>.</p>
+(Note that React hooks must have <a href="https://reactjs.org/docs/hooks-custom.html#extracting-a-custom-hook">names starting with &ldquo;use&rdquo;</a>.)</p>
 <p>Now we can just combine these 2 into 1 file:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// Input.jsx
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
@@ -415,7 +415,7 @@ No need to reinvent the wheel for composable behavior.</p>
   
 </svg>
 <span class='screen-reader-text'>Last updated: </span>
-      <time class='entry-date' datetime='2019-11-29T23:04:45-05:00'>2019, Nov 29</time>
+      <time class='entry-date' datetime='2020-02-15T12:45:00Z'>2020, Feb 15</time>
     </div><div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
