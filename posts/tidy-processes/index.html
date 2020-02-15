@@ -13,7 +13,7 @@ But, it gets more complex if:
  You need to run the subprocess concurrently with your script The subprocess creates its own child processes  In my case, I had a Flask server that needed to be running while my experiment script ran since my script made API calls to the server.'>
 <meta property='og:url' content='http://www.github.pcattori.io/posts/tidy-processes/'>
 <meta property='og:site_name' content='Pedro Cattori'>
-<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:tag' content='Python'><meta property='article:published_time' content='2019-11-07T20:12:00-05:00'/><meta property='article:modified_time' content='2019-11-07T20:12:00-05:00'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:tag' content='Python'><meta property='article:published_time' content='2019-11-07T20:12:00-05:00'/><meta property='article:modified_time' content='2020-02-15T12:48:00Z'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.60.0" />
 
@@ -144,7 +144,7 @@ OSError: <span style="color:#f92672">[</span>Errno 48<span style="color:#f92672"
 </code></pre></div><p>The Flask server from the first run is still running, causing new runs to crash when a new Flask server tries to take the same port (by default port <code>5000</code> for Flask).
 <code>proc.kill</code> doesn't save us since that will kill the <code>python flask_app.py</code> subprocess, but the Flask server actually runs in a child process <em>of that subprocess</em>, leaving us with a <a href="https://en.wikipedia.org/wiki/Zombie_process">zombie process</a> 🧟.</p>
 <h2 id="solution">Solution</h2>
-<p>The solution is to recursively kill all the children processes 💀:<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>The solution is to recursively kill 💀 all the children processes:<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># tidy_process.py</span>
 <span style="color:#f92672">from</span> contextlib <span style="color:#f92672">import</span> contextmanager
 <span style="color:#f92672">import</span> subprocess
@@ -161,7 +161,7 @@ OSError: <span style="color:#f92672">[</span>Errno 48<span style="color:#f92672"
         <span style="color:#66d9ef">for</span> child <span style="color:#f92672">in</span> psutil<span style="color:#f92672">.</span>Process(proc<span style="color:#f92672">.</span>pid)<span style="color:#f92672">.</span>children(recursive<span style="color:#f92672">=</span>True):
             child<span style="color:#f92672">.</span>kill()
         proc<span style="color:#f92672">.</span>kill()
-</code></pre></div><p>Note the use of <code>@contextmanager</code> in conjunction with <code>try`/</code>finally` blocks that guarantee that the process (and its descendant processes) are killed even if an exception occurs in the calling code.</p>
+</code></pre></div><p>Note the use of <code>@contextmanager</code> in conjunction with <code>try</code> / <code>finally</code> blocks that guarantee that the process (and its descendant processes) are killed even if an exception occurs in the calling code.</p>
 <p>If you aren't familiar with <a href="https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager">context managers</a>, I highly recommend <a href="https://youtu.be/OSGv2VnC0go?t=2365">Raymond Hettinger's introduction to them</a>.</p>
 <h2 id="usage">Usage</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># experiment.py</span>
@@ -170,7 +170,7 @@ OSError: <span style="color:#f92672">[</span>Errno 48<span style="color:#f92672"
     <span style="color:#66d9ef">with</span> tidy_process(command, stdout<span style="color:#f92672">=</span>out, stderr<span style="color:#f92672">=</span>err) <span style="color:#66d9ef">as</span> proc:
         run_simulation()
         <span style="color:#ae81ff">0</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">0</span> <span style="color:#75715e"># still tidy, even when exceptions occur</span>
-</code></pre></div><p>Here, I log <code>stdout`/</code>stderr` of the subprocess to files.
+</code></pre></div><p>Here, I log <code>stdout</code> / <code>stderr</code> of the subprocess to files.
 Not necessary, but convenient for debugging 🐛.</p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
@@ -185,7 +185,15 @@ Not necessary, but convenient for debugging 🐛.</p>
 
   
 <footer class='entry-footer'>
-  <div class='container sep-before'><div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  <div class='container sep-before'><div class='last-updated'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34" />
+  <polygon points="18 2 22 6 12 16 8 16 8 12 18 2" />
+  
+</svg>
+<span class='screen-reader-text'>Last updated: </span>
+      <time class='entry-date' datetime='2020-02-15T12:48:00Z'>2020, Feb 15</time>
+    </div><div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
   <line x1="7" y1="7" x2="7" y2="7"/>
