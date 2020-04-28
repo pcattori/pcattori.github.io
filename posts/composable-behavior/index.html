@@ -2,20 +2,20 @@
 <html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='When I first learned React ⚛, it took me less than a day to run into the ol&rsquo; &ldquo;controlled vs uncontrolled components&rdquo; dichotomy. At the time, I didn&#39;t know the terms &ldquo;controlled&rdquo; and &ldquo;uncontrolled&rdquo;, but still struggled to fit my designs into these two buckets.
+<meta name='description' content='When I first learned React ⚛, it took me less than a day to run into the ol&rsquo; &ldquo;controlled vs uncontrolled components&rdquo; dichotomy. At the time, I didn&rsquo;t know the terms &ldquo;controlled&rdquo; and &ldquo;uncontrolled&rdquo;, but still struggled to fit my designs into these two buckets.
 The tension was between 2 competing goals:
- I want to make my components as reusable as possible My use-cases were similar, but not exactly the same&hellip;  Here&#39;s a checkbox component that takes care of styling and toggling when clicked.'>
+ I want to make my components as reusable as possible My use-cases were similar, but not exactly the same&hellip;  Here&rsquo;s a checkbox component that takes care of styling and toggling when clicked.'>
 <meta name='theme-color' content='#00adb5'>
 
 <meta property='og:title' content='Composable Behavior with React Hooks • Pedro Cattori'>
-<meta property='og:description' content='When I first learned React ⚛, it took me less than a day to run into the ol&rsquo; &ldquo;controlled vs uncontrolled components&rdquo; dichotomy. At the time, I didn&#39;t know the terms &ldquo;controlled&rdquo; and &ldquo;uncontrolled&rdquo;, but still struggled to fit my designs into these two buckets.
+<meta property='og:description' content='When I first learned React ⚛, it took me less than a day to run into the ol&rsquo; &ldquo;controlled vs uncontrolled components&rdquo; dichotomy. At the time, I didn&rsquo;t know the terms &ldquo;controlled&rdquo; and &ldquo;uncontrolled&rdquo;, but still struggled to fit my designs into these two buckets.
 The tension was between 2 competing goals:
- I want to make my components as reusable as possible My use-cases were similar, but not exactly the same&hellip;  Here&#39;s a checkbox component that takes care of styling and toggling when clicked.'>
+ I want to make my components as reusable as possible My use-cases were similar, but not exactly the same&hellip;  Here&rsquo;s a checkbox component that takes care of styling and toggling when clicked.'>
 <meta property='og:url' content='http://www.github.pcattori.io/posts/composable-behavior/'>
 <meta property='og:site_name' content='Pedro Cattori'>
 <meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:tag' content='React'><meta property='article:published_time' content='2019-11-14T21:07:19-05:00'/><meta property='article:modified_time' content='2020-02-15T12:45:00Z'/><meta name='twitter:card' content='summary'>
 
-<meta name="generator" content="Hugo 0.60.0" />
+<meta name="generator" content="Hugo 0.67.1" />
 
   <title>Composable Behavior with React Hooks • Pedro Cattori</title>
   <link rel='canonical' href='http://www.github.pcattori.io/posts/composable-behavior/'>
@@ -102,13 +102,13 @@ The tension was between 2 competing goals:
 
   <div class='container entry-content'>
   <p>When I first learned <a href="https://reactjs.org/">React</a> ⚛, it took me less than a day to run into the ol&rsquo; <a href="https://reactjs.org/docs/uncontrolled-components.html">&ldquo;controlled vs uncontrolled components&rdquo;</a> dichotomy.
-At the time, I didn't know the terms &ldquo;controlled&rdquo; and &ldquo;uncontrolled&rdquo;, but still struggled to fit my designs into these two buckets.</p>
+At the time, I didn&rsquo;t know the terms &ldquo;controlled&rdquo; and &ldquo;uncontrolled&rdquo;, but still struggled to fit my designs into these two buckets.</p>
 <p>The tension was between 2 competing goals:</p>
 <ol>
 <li>I want to make my components as <strong>reusable</strong> as possible</li>
 <li>My use-cases were <em>similar</em>, but <strong>not exactly the same</strong>&hellip;</li>
 </ol>
-<p>Here's a checkbox component that takes care of styling and toggling when clicked.
+<p>Here&rsquo;s a checkbox component that takes care of styling and toggling when clicked.
 It used it as-is in a couple places, but then kept running into cases where I wanted more fine-grained control.
 E.g. I was using some checkboxes as filters and I wanted my <em>Clear filters</em> button to uncheck all the filter checkboxes.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
@@ -133,7 +133,7 @@ E.g. I was using some checkboxes as filters and I wanted my <em>Clear filters</e
 }
 </code></pre></div><p>The tension becomes apparent as I kept adding more and more props to my components to configure them to deal with the variety of use-cases.
 It looked ugly and quickly became unmaintainable.</p>
-<p>Maybe writing <em>truly</em> reusable UI components is a fool's errand.
+<p>Maybe writing <em>truly</em> reusable UI components is a fool&rsquo;s errand.
 I gave up on finding a better way and settled into writing mostly controlled components wired to Redux.
 But every time I wrote Redux code just to enable obvious, default behavior (e.g. &ldquo;toggling a checkbox&rdquo;, &ldquo;writing characters into a text input&rdquo;), I longed again for a better way.</p>
 <p>My persistence to find a better way was tied up with my ego as a developer.
@@ -143,16 +143,16 @@ Surely, any great software engineer should be able to write reusable UI componen
 <hr>
 <p>A couple weeks ago I had 2 epiphanies on this subject:</p>
 <ol>
-<li>From a design perspective, making everything reusable means you <strong>don't understand the problem you are trying to solve</strong>.</li>
+<li>From a design perspective, making everything reusable means you <strong>don&rsquo;t understand the problem you are trying to solve</strong>.</li>
 <li>The &ldquo;controlled&rdquo; vs &ldquo;uncontrolled&rdquo; is a <strong>false dichotomy</strong>.</li>
 </ol>
-<p>I realized (1) after reading the first couple chapters from <a href="https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215">Eric Evan's &ldquo;Domain-Driven Design&rdquo;</a>.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
-<p>In the rest of this post, I want to focus on how understanding and applying &ldquo;composable behavior&rdquo; frees us from the shackles of (2). It is not only possible to make reusable components that can adapt to many use-cases, it's <em>a joy</em> to write and use them.</p>
+<p>I realized (1) after reading the first couple chapters from <a href="https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215">Eric Evan&rsquo;s &ldquo;Domain-Driven Design&rdquo;</a>.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>In the rest of this post, I want to focus on how understanding and applying &ldquo;composable behavior&rdquo; frees us from the shackles of (2). It is not only possible to make reusable components that can adapt to many use-cases, it&rsquo;s <em>a joy</em> to write and use them.</p>
 <h2 id="case-study-reusable-input">Case study: reusable input</h2>
-<p>First things first: I'm going to use <a href="https://reactjs.org/docs/hooks-intro.html">React Hooks</a> from here on out instead of <code>state</code> and <code>setState</code>.
+<p>First things first: I&rsquo;m going to use <a href="https://reactjs.org/docs/hooks-intro.html">React Hooks</a> from here on out instead of <code>state</code> and <code>setState</code>.
 Hooks will keep our code focused on solving our problem rather than writing boilerplate code.</p>
-<p>For brevity, the examples will use <a href="https://reactjs.org/docs/dom-elements.html#style">inline styles</a>, but I'd recommend using CSS-in-JS solutions like <a href="https://emotion.sh/docs/introduction">emotion</a> instead.</p>
-<p>With that out of the way, let's look at making a reusable <code>Input.jsx</code> component.</p>
+<p>For brevity, the examples will use <a href="https://reactjs.org/docs/dom-elements.html#style">inline styles</a>, but I&rsquo;d recommend using CSS-in-JS solutions like <a href="https://emotion.sh/docs/introduction">emotion</a> instead.</p>
+<p>With that out of the way, let&rsquo;s look at making a reusable <code>Input.jsx</code> component.</p>
 <hr>
 <p>An <em>uncontrolled</em> <code>&lt;input/&gt;</code> does the obvious thing out-of-the-box. Namely, as a user types, the characters they are typing appear in the text box.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// UncontrolledInput.jsx
@@ -229,7 +229,7 @@ Hooks will keep our code focused on solving our problem rather than writing boil
 <p>To unify <code>UncontrolledInput.jsx</code> and <code>ControlledInput.jsx</code>, we need to let the user tells us when to do the default behavior and when to do something custom.
 The key insight will be for the user to <strong>explicitly opt-in to default behavior</strong>.</p>
 <h2 id="composable-behavior">Composable behavior</h2>
-<p>Let's decouple our rendering and behavior.</p>
+<p>Let&rsquo;s decouple our rendering and behavior.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// Rendering
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
 
@@ -244,7 +244,7 @@ The key insight will be for the user to <strong>explicitly opt-in to default beh
 }
 
 <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Input</span>
-</code></pre></div><p>You'll notice that our rendering code is now the same as <code>ControlledInput.jsx</code>.
+</code></pre></div><p>You&rsquo;ll notice that our rendering code is now the same as <code>ControlledInput.jsx</code>.
 This is great!
 Writing our components as pure functions keeps everything ultra configurable and adaptable.
 Now the only challenge is shipping some default behavior that the user can easily, ergonomically opt-in to.</p>
@@ -298,7 +298,7 @@ Now the only challenge is shipping some default behavior that the user can easil
 }
 </code></pre></div><p>We let the user <strong>compose</strong> the behavior with the component themselves.
 This tiny bit of wiring is still ergonomic and is a tiny price to pay for adaptability.</p>
-<p>Let's see what that adaptability looks like by trying to create another <code>Input</code> with custom behavior right next to our current, default-behavior <code>Input</code>:</p>
+<p>Let&rsquo;s see what that adaptability looks like by trying to create another <code>Input</code> with custom behavior right next to our current, default-behavior <code>Input</code>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// App.jsx
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
 
@@ -337,8 +337,8 @@ This tiny bit of wiring is still ergonomic and is a tiny price to pay for adapta
   )
 }
 </code></pre></div><p>Behold the power of composable behavior!</p>
-<p>Like the power to <a href="https://twitter.com/dan_abramov/status/1021850499618955272">compose components</a><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, this pattern let's you ergonomically choose between built-in behaviors and custom ones to fit the needs of every use-case in your app.</p>
-<p><strong>Nota Bene</strong>: we've been asserting that there is <strong>1</strong> obvious, default behavior, but notice that this pattern scales gracefully.
+<p>Like the power to <a href="https://twitter.com/dan_abramov/status/1021850499618955272">compose components</a><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, this pattern let&rsquo;s you ergonomically choose between built-in behaviors and custom ones to fit the needs of every use-case in your app.</p>
+<p><strong>Nota Bene</strong>: we&rsquo;ve been asserting that there is <strong>1</strong> obvious, default behavior, but notice that this pattern scales gracefully.
 There is nothing preventing us from writing multiple hooks for multiple pre-packaged behaviors.</p>
 <h2 id="off-the-hook">Off the hook</h2>
 <p>Finally, we can decouple our behavior from hooks (and any 1 particular state management e.g. Redux, React Context, etc&hellip;) by shipping behavior as pure functions too!</p>
@@ -376,16 +376,16 @@ There is nothing preventing us from writing multiple hooks for multiple pre-pack
 <p>You might argue:</p>
 <blockquote>
 <p>But if I know the default behavior for something, why not ship with an uncontrolled component that includes that behavior?
-I don't want to rewire the same, default behavior over and over.
-That's too tedious&hellip;</p>
+I don&rsquo;t want to rewire the same, default behavior over and over.
+That&rsquo;s too tedious&hellip;</p>
 </blockquote>
-<p>If you find yourself constantly wiring the same behavior to the same component, you've discovered something about your use-case!
+<p>If you find yourself constantly wiring the same behavior to the same component, you&rsquo;ve discovered something about your use-case!
 Maybe that coupling <em>should</em> be promoted to be a concept unto itself, and then yes, you can pre-couple that behavior and rendering into a stateful component for reuse.</p>
-<p>But the point is that <em>you</em> are in control of that, its not a pre-coupling that happened somewhere that you can't reach.
-As a user of a library, its much easier to create a new coupling (via composition) than it is to detangle part of the library (if you've ever had to wrangle <code>ref</code>s and callbacks you know what I mean).</p>
+<p>But the point is that <em>you</em> are in control of that, its not a pre-coupling that happened somewhere that you can&rsquo;t reach.
+As a user of a library, its much easier to create a new coupling (via composition) than it is to detangle part of the library (if you&rsquo;ve ever had to wrangle <code>ref</code>s and callbacks you know what I mean).</p>
 <h2 id="fp">FP?</h2>
-<p>This isn't a new idea.
-Composing behavior is the central tenet of <a href="https://en.wikipedia.org/wiki/Functional_programming">Functional Programming</a>, though in that context we'd say <a href="https://en.wikipedia.org/wiki/Functional_programming#First-class_and_higher-order_functions">&ldquo;Functions can be passed as arguments to other functions&rdquo;</a>.</p>
+<p>This isn&rsquo;t a new idea.
+Composing behavior is the central tenet of <a href="https://en.wikipedia.org/wiki/Functional_programming">Functional Programming</a>, though in that context we&rsquo;d say <a href="https://en.wikipedia.org/wiki/Functional_programming#First-class_and_higher-order_functions">&ldquo;Functions can be passed as arguments to other functions&rdquo;</a>.</p>
 <p>It makes me happy to see <a href="https://overreacted.io/algebraic-effects-for-the-rest-of-us/#a-note-on-purity">React borrowing from FP</a> more and more where it makes sense.
 No need to reinvent the wheel for composable behavior.</p>
 <p>Ship behavior (as functions/hooks) alongside stateless, controlled components and let the user compose their symphony. 🚀</p>
@@ -393,13 +393,13 @@ No need to reinvent the wheel for composable behavior.</p>
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p>I highly recommend the first couple chapters, but then watch <a href="https://www.youtube.com/watch?v=Up7LcbGZFuo">Domain-Driven Design Made Functional</a></p>
+<p>I highly recommend the first couple chapters, but then watch <a href="https://www.youtube.com/watch?v=Up7LcbGZFuo">Domain-Driven Design Made Functional</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p>See <a href="https://varun.ca/flattening-deep-hierarchies-of-components/">this article</a> for more on composing components</p>
+<p>See <a href="https://varun.ca/flattening-deep-hierarchies-of-components/">this article</a> for more on composing components <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:3" role="doc-endnote">
-<p>Similar to a Redux reducer, but not <em>quite</em>. Reducers accept <code>(state, action)</code> whereas here we accept only <code>(state)</code> since the <code>action</code> is encoded as the particular function (e.g. <code>toggle</code>)</p>
+<p>Similar to a Redux reducer, but not <em>quite</em>. Reducers accept <code>(state, action)</code> whereas here we accept only <code>(state)</code> since the <code>action</code> is encoded as the particular function (e.g. <code>toggle</code>) <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>

@@ -16,9 +16,9 @@
       <pubDate>Thu, 14 Nov 2019 21:07:19 -0500</pubDate>
       
       <guid>http://www.github.pcattori.io/posts/composable-behavior/</guid>
-      <description>When I first learned React ⚛, it took me less than a day to run into the ol&amp;rsquo; &amp;ldquo;controlled vs uncontrolled components&amp;rdquo; dichotomy. At the time, I didn&#39;t know the terms &amp;ldquo;controlled&amp;rdquo; and &amp;ldquo;uncontrolled&amp;rdquo;, but still struggled to fit my designs into these two buckets.
+      <description>When I first learned React ⚛, it took me less than a day to run into the ol&amp;rsquo; &amp;ldquo;controlled vs uncontrolled components&amp;rdquo; dichotomy. At the time, I didn&amp;rsquo;t know the terms &amp;ldquo;controlled&amp;rdquo; and &amp;ldquo;uncontrolled&amp;rdquo;, but still struggled to fit my designs into these two buckets.
 The tension was between 2 competing goals:
- I want to make my components as reusable as possible My use-cases were similar, but not exactly the same&amp;hellip;  Here&#39;s a checkbox component that takes care of styling and toggling when clicked.</description>
+ I want to make my components as reusable as possible My use-cases were similar, but not exactly the same&amp;hellip;  Here&amp;rsquo;s a checkbox component that takes care of styling and toggling when clicked.</description>
     </item>
     
   </channel>

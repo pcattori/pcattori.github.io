@@ -5,7 +5,7 @@
     <link>http://www.github.pcattori.io/</link>
     <description>Recent content in Blog on Pedro Cattori</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 20 Dec 2019 19:09:01 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2020 13:59:48 -0400</lastBuildDate>
     
 	<atom:link href="http://www.github.pcattori.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -16,7 +16,22 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://www.github.pcattori.io/about/</guid>
-      <description>Hi! I&#39;m Pedro. I&#39;m currently a Machine Learning Engineer @ Tamr.</description>
+      <description>Hi! I&amp;rsquo;m Pedro. I&amp;rsquo;m currently a Machine Learning Engineer @ Tamr.</description>
+    </item>
+    
+    <item>
+      <title>Inventing the Y-Combinator</title>
+      <link>http://www.github.pcattori.io/posts/y-combinator/</link>
+      <pubDate>Tue, 28 Apr 2020 13:59:48 -0400</pubDate>
+      
+      <guid>http://www.github.pcattori.io/posts/y-combinator/</guid>
+      <description>In this post we will derive the Y-combinator from first principles.
+In other words, we will invent a reusable way to use recursion in lambda calculus.
+Step 1:
+Start with a function \( f \) whose implementation is self-referencing. Then the body of \( f \) must look like:
+\[ f = ...f...f... \] Here we use \( ... \) to denote any lambda calculus expression.
+Step 2:
+Instead of hardcoding \( f \) in the body, let&amp;rsquo;s factor out \( f \) :</description>
     </item>
     
     <item>
@@ -37,9 +52,9 @@ Deep Learning is a subset of ML and will be discussed at the end of this post.
       <pubDate>Thu, 14 Nov 2019 21:07:19 -0500</pubDate>
       
       <guid>http://www.github.pcattori.io/posts/composable-behavior/</guid>
-      <description>When I first learned React ⚛, it took me less than a day to run into the ol&amp;rsquo; &amp;ldquo;controlled vs uncontrolled components&amp;rdquo; dichotomy. At the time, I didn&#39;t know the terms &amp;ldquo;controlled&amp;rdquo; and &amp;ldquo;uncontrolled&amp;rdquo;, but still struggled to fit my designs into these two buckets.
+      <description>When I first learned React ⚛, it took me less than a day to run into the ol&amp;rsquo; &amp;ldquo;controlled vs uncontrolled components&amp;rdquo; dichotomy. At the time, I didn&amp;rsquo;t know the terms &amp;ldquo;controlled&amp;rdquo; and &amp;ldquo;uncontrolled&amp;rdquo;, but still struggled to fit my designs into these two buckets.
 The tension was between 2 competing goals:
- I want to make my components as reusable as possible My use-cases were similar, but not exactly the same&amp;hellip;  Here&#39;s a checkbox component that takes care of styling and toggling when clicked.</description>
+ I want to make my components as reusable as possible My use-cases were similar, but not exactly the same&amp;hellip;  Here&amp;rsquo;s a checkbox component that takes care of styling and toggling when clicked.</description>
     </item>
     
     <item>
