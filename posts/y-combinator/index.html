@@ -89,7 +89,7 @@ To ground our understanding, we will reference the Python implementation of the 
   <polyline points="12 6 12 12 15 15"/>
   
 </svg>
-3 mins read
+4 mins read
 </span>
 
 
@@ -320,17 +320,48 @@ M = \lambda r ...r...r...
 
 \]
 
-<p><strong>Step 6:</strong></p>
-<p>Finally, given \(
-M
-\)
- we can define \(
-f
-\)
-:</p>
 \[
 
-f = \lambda m.(\lambda x.m(xx))(\lambda x.m(xx))
+\therefore f = (\lambda x.M(xx))(\lambda x.M(xx))
+
+\]
+
+<p><strong>Step 6:</strong></p>
+<p>Can we generalize this approach for <em>any</em> recursive function? Yes!</p>
+<p>Starting with the expression:</p>
+\[
+
+f = (\lambda x.M(xx))(\lambda x.M(xx))
+
+\]
+
+<p>we can factor out \(
+M
+\)
+ as a parameter to define the Y-combinator:</p>
+\[
+
+\Upsilon = \lambda m.(\lambda x.m(xx))(\lambda x.m(xx))
+
+\]
+
+<p>For any recursive function \(
+f
+\)
+, we can extract its non-recursive logic \(
+M
+\)
+ like we did in our Python example.
+Then we simply pass \(
+M
+\)
+ into the Y-combinator to define \(
+f
+\)
+.</p>
+\[
+
+f = \Upsilon M = (\lambda m.(\lambda x.m(xx))(\lambda x.m(xx)))M
 
 \]
 
@@ -340,8 +371,8 @@ m
  encodes all interesting parts of \(
 f
 \)
-&rsquo;s implementation.</p>
-<p>The rest of this expression just plumbs through the recursion.</p>
+&rsquo;s implementation.
+The rest of this expression just plumbs through the recursion.</p>
 
 </div>
 
