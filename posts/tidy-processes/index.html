@@ -15,7 +15,7 @@ But, it gets more complex if:
 <meta property='og:site_name' content='Pedro Cattori'>
 <meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:tag' content='Python'><meta property='article:published_time' content='2019-11-07T20:12:00-05:00'/><meta property='article:modified_time' content='2020-02-15T12:48:00Z'/><meta name='twitter:card' content='summary'>
 
-<meta name="generator" content="Hugo 0.67.1" />
+<meta name="generator" content="Hugo 0.70.0" />
 
   <title>Tidy Processes in Python • Pedro Cattori</title>
   <link rel='canonical' href='http://www.github.pcattori.io/posts/tidy-processes/'>
@@ -142,7 +142,7 @@ Traceback <span style="color:#f92672">(</span>most recent call last<span style="
     s.bind<span style="color:#f92672">(</span>server_address<span style="color:#f92672">)</span>
 OSError: <span style="color:#f92672">[</span>Errno 48<span style="color:#f92672">]</span> Address already in use
 </code></pre></div><p>The Flask server from the first run is still running, causing new runs to crash when a new Flask server tries to take the same port (by default port <code>5000</code> for Flask).
-<code>proc.kill</code> doesn&rsquo;t save us since that will kill the <code>python flask_app.py</code> subprocess, but the Flask server actually runs in a child process <em>of that subprocess</em>, leaving us with a <a href="https://en.wikipedia.org/wiki/Zombie_process">zombie process</a> 🧟.</p>
+<code>proc.kill</code> doesn&rsquo;t save us since that will kill the <code>python flask_app.py</code> subprocess, but the Flask server actually runs in a child process <em>of that subprocess</em>, leaving us with a <a href="https://en.wikipedia.org/wiki/Zombie_process">zombie process</a> 🧟‍♂️.</p>
 <h2 id="solution">Solution</h2>
 <p>The solution is to recursively kill 💀 all the children processes:<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># tidy_process.py</span>
